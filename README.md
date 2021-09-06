@@ -1,3 +1,3 @@
-# Flutter Clubhouse UI Tutorial | Apps From Scratch
+# Clubhouse UI Clone Using Flutter
 
-[YouTube Video](https://youtu.be/x606y4QWrxo)
+[Referenced YouTube Video](https://youtu.be/x606y4QWrxo)
