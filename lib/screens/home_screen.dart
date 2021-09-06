@@ -39,18 +39,64 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 120),
-          children: [
-            UpcomingRoom(
-              rooms: upcomingRoomsList,
-            ),
-            ...roomsList
-                .map((room) => SingleRoom(
-                      room: room,
-                    ))
-                .toList()
-          ]),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          ListView(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 120),
+              children: [
+                UpcomingRoom(
+                  rooms: upcomingRoomsList,
+                ),
+                ...roomsList
+                    .map((room) => SingleRoom(
+                          room: room,
+                        ))
+                    .toList()
+              ]),
+          Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                height: 100,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                      Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withOpacity(0.1),
+                      Theme.of(context).scaffoldBackgroundColor,
+                    ])),
+              )),
+          Positioned(
+              bottom: 60,
+              child: Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).accentColor,
+                    borderRadius: BorderRadius.circular(24)),
+                child: Text.rich(TextSpan(
+                  children: [
+                    WidgetSpan(
+                        child: Icon(
+                      CupertinoIcons.add,
+                      size: 21,
+                      color: Colors.white,
+                    )),
+                    TextSpan(
+                        text: "Start a room",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500))
+                  ],
+                )),
+              ))
+        ],
+      ),
     );
   }
 }
